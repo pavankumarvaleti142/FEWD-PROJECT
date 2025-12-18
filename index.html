@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kidz World</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <style>
+    /* ------------------ General Styles ------------------ */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #fff;
+    color: #333;
+}
+
+/* Utility classes */
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.space-evenly {
+    justify-content: space-evenly;
+}
+
+/* ------------------ Navbar ------------------ */
+nav {
+    background-color: #fff;
+    padding: 15px 40px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+nav img {
+    height: 40px;
+}
+
+#cart p {
+    margin-left: 10px;
+    font-weight: 500;
+}
+
+/* ------------------ Header ------------------ */
+header {
+    background: linear-gradient(135deg, #ff6373, #ffb84d);
+    color: white;
+    padding: 60px 40px;
+    text-align: left;
+}
+
+.header-text {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+header h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+}
+
+header h5 {
+    margin-top: 10px;
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
+/* ------------------ Sections ------------------ */
+.section-container {
+    flex-direction: column;
+    padding: 40px;
+    gap: 60px;
+}
+
+.section h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.container {
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.container>div {
+    width: 200px;
+    background: #fff8f8;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.container>div:hover {
+    transform: translateY(-5px);
+}
+
+.books,
+.games,
+.crafts {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+}
+
+h3 {
+    font-size: 1.1rem;
+    margin: 10px 0 5px;
+}
+
+h4 {
+    color: #666;
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+/* ------------------ Buy Button ------------------ */
+.buy {
+    align-items: center;
+    margin-top: 10px;
+}
+
+.button {
+    background-color: #ff6373;
+    color: white;
+    border-radius: 8px;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.button:hover {
+    background-color: #ff445c;
+}
+
+.button img {
+    width: 15px;
+}
+
+/* ------------------ Footer ------------------ */
+footer {
+    background-color: #111;
+    color: #fff;
+    padding: 30px 40px;
+    align-items: center;
+}
+
+footer img {
+    width: 80px;
+    border-radius: 50%;
+    margin-top: 10px;
+}
+
+#details {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#details h3 {
+    margin-bottom: 5px;
+}
+
+/* ------------------ Responsive Design ------------------ */
+
+/* Tablets (≤ 1024px) */
+@media (max-width: 1024px) {
+    nav {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    header {
+        padding: 40px 20px;
+    }
+
+    header h1 {
+        font-size: 2.2rem;
+    }
+
+    .container>div {
+        width: 45%;
+    }
+
+    .section-container {
+        padding: 30px 20px;
+    }
+}
+
+/* Mobile (≤ 600px) */
+@media (max-width: 600px) {
+    nav {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    #cart p {
+        font-size: 0.9rem;
+    }
+
+    header {
+        text-align: center;
+        padding: 40px 10px;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    .section-container {
+        padding: 20px;
+    }
+
+    .container {
+        justify-content: center;
+    }
+
+    .container>div {
+        width: 90%;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #details {
+        align-items: center;
+    }
+}
+  </style>
+
+  <body>
+    <!-- Navigation bar -->
+    <nav class="flex space-between">
+      <div>
+        <img src="https://github.com/Kalvium-Program/kidz-world-html/blob/main/assets/birthday-card.png" alt="" />
+      </div>
+      <div id="cart" class="flex">
+        <img src="./assets/cart-icon.png" alt="" />
+        <p>Cart items (<span id="cart-value">0</span>)</p>
+      </div>
+    </nav>
+    <!-- Header section -->
+    <header>
+      <div class="flex header-text">
+        <h1>Shop.</h1>
+        <h1>Have Fun.</h1>
+        <h1>Repeat.</h1>
+        <h5>#NewAndNow</h5>
+      </div>
+    </header>
+    <!-- Books section -->
+    <div class="section-container flex">
+      <div class="section">
+        <h2>Discover New Books</h2>
+        <div class="container flex space-between">
+          <div>
+            <div>
+              <img class="books" src="./assets/book1.png" alt="" />
+              <h3>This was our pact</h3>
+              <h4>Ryan Andrews</h4>
+            </div>
+            <div class="buy flex space-between">
+              <p>$7.49</p>
+              <div id="book1" class="button flex space-evenly">
+                <h6>Add</h6>
+                <img src="./assets/cart-icon-white.png" alt="" />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div>
+              <img
+                class="books"
+                src="http://i1.faceprep.in/prograd-junior/book2.png"
+                alt=""
+              />
+              <h3>The famous five</h3>
+              <h4>Guid Blyton</h4>
+            </div>
+            <div class="buy flex space-between">
+              <p>$4.59</p>
+              <div id="book2" class="button flex space-evenly">
+                <h6>Add</h6>
+                <img src="./assets/cart-icon-white.png" alt="" />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div>
+              <img class="books" src="./assets/book3.png" alt="" />
+              <h3>Matlida</h3>
+              <h4>Roald Dahl</h4>
+            </div>
+            <div class="buy flex space-between">
+              <p>$6.80</p>
+              <div id="book3" class="button flex space-evenly">
+                <h6>Add</h6>
+                <img src="./assets/cart-icon-white.png" alt="" />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div>
+              <img
+                class="books"
+                src="http://i1.faceprep.in/prograd-junior/book4.png"
+                alt=""
+              />
+              <h3>Harry Potter</h3>
+              <h4>JK Rowling</h4>
+            </div>
+            <div class="buy flex space-between">
+              <p>$10</p>
+              <div id="book4" class="button flex space-evenly">
+                <h6>Add</h6>
+                <img src="./assets/cart-icon-white.png" alt="" />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div>
+              <img class="books" src="./assets/book5.png" alt="" />
+              <h3>For Young Readers</h3>
+              <h4>Ruskin Bond</h4>
+            </div>
+            <div class="buy flex space-between">
+              <p>$7.29</p>
+              <div id="book5" class="button flex space-evenly">
+                <h6>Add</h6>
+                <img src="./assets/cart-icon-white.png" alt="" />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div>
+              <img class="books" src="./assets/book6.png" alt="" />
+              <h3>Wimpy Kid - DIY</h3>
+              <h4>Jeff Kinney</h4>
+            </div>
+            <div class="buy flex space-between">
+              <p>$4.99</p>
+              <div id="book6" class="button flex space-evenly">
+                <h6>Add</h6>
+                <img src="./assets/cart-icon-white.png" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- game section -->
+      <div class="section">
+        <h2>Discover New Games</h2>
+        <div class="container flex space-between">
+          <div>
+            <div>
+              <img class="games" src="./assets/dart-board.png" alt="" />
+              <h3>Dart Board</h3>
+              <h4>Wooden board, 16 inches</h4>
+            </div>
+            <div class="buy flex space-between">
+              <p>$17.49</p>
+              <div id="game1" class="button flex space-evenly">
+                <h6>Add</h6>
+                <img src="./assets/cart-icon-white.png" alt="" />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div>
+              <img class="games" src="./assets/connect-four.png" alt="" />
+              <h3>Connect 4</h3>
+              <h4>Board game, multiplayer</h4>
+            </div>
+            <div class="buy flex space-between">
+              <p>$19.99</p>
+              <div id="game2" class="button flex space-evenly">
+                <h6>Add</h6>
+                <img src="./assets/cart-icon-white.png" alt="" />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div>
+              <img class="games" src="./assets/jenga.png" alt="" />
+              <h3>Jenga</h3>
+              <h4>Wooden blocks, 54 pieces</h4>
+            </div>
+            <div class="buy flex space-between">
+              <p>$20.99</p>
+              <div id="game3" class="button flex space-evenly">
+                <h6>Add</h6>
+                <img src="./assets/cart-icon-white.png" alt="" />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div>
+              <img class="games" src="./assets/monopoly.png" alt="" />
+              <h3>Monopoly</h3>
+              <h4>1.61 x 15.75 x 10.51 inches</h4>
+            </div>
+            <div class="buy flex space-between">
+              <p>$19.49</p>
+              <div id="game4" class="button flex space-evenly">
+                <h6>Add</h6>
+                <img src="./assets/cart-icon-white.png" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Craft section -->
+      <div class="section">
+        <h2>Handmade with love</h2>
+        <div class="container flex space-between">
+          <div>
+            <div>
+              <img class="crafts" src="./assets/bookmarks.png" alt="" />
+              <h3>Bookmarks</h3>
+              <h4>Handmade with love</h4>
+            </div>
+            <div class="buy flex space-between">
+              <p>$12.49</p>
+              <div id="craft1" class="button flex space-evenly">
+                <h6>Add</h6>
+                <img src="./assets/cart-icon-white.png" alt="" />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div>
+              <img class="crafts" src="./assets/birthday-card.png" alt="" />
+              <h3>Birthday card</h3>
+              <h4>Handmade with love</h4>
+            </div>
+            <div class="buy flex space-between">
+              <p>$19.99</p>
+              <div id="craft2" class="button flex space-evenly">
+                <h6>Add</h6>
+                <img src="./assets/cart-icon-white.png" alt="" />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div>
+              <img class="crafts" src="./assets/stuffed-toy.png" alt="" />
+              <h3>Stuffed toys</h3>
+              <h4>Handmade with love</h4>
+            </div>
+            <div class="buy flex space-between">
+              <p>$15.99</p>
+              <div id="craft3" class="button flex space-evenly">
+                <h6>Add</h6>
+                <img src="./assets/cart-icon-white.png" alt="" />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div>
+              <img class="crafts" src="./assets/dream-catcher.png" alt="" />
+              <h3>Dream catcher drawing</h3>
+              <h4>Handmade with love</h4>
+            </div>
+            <div class="buy flex space-between">
+              <p>$18.49</p>
+              <div id="craft4" class="button flex space-evenly">
+                <h6>Add</h6>
+                <img src="./assets/cart-icon-white.png" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer section -->
+    <footer class="flex space-between">
+      <div>
+        <h2>Brought to you by</h2>
+        <img src="./assets/krishti.png" alt="" />
+      </div>
+      <div class="flex" id="details">
+        <h3>zibran</h3>
+        <p>Made with love ♥️ by Kalvian</p>
+        <p>Talk to me at zibran.shaik.s.143@gmail.com</p>
+      </div>
+    </footer>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
